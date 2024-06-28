@@ -1,4 +1,3 @@
-<!-- Import "Profile_Banner.png" from /assets -->
 ![Semper API Module](assets/Profile_Banner.png)
 
 # Semper API Module
