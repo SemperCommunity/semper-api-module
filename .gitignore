@@ -1,0 +1,29 @@
+# Node
+node_modules
+
+# Typescript
+dist
+*.tsbuildinfo
+
+# IDE
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Other
+*.log
+*.tmp
+*.tmp.*
+*.swp
+*.bak
+*.cache
+*.project
+*.properties
+*.settings
+*.class
+*.jar
+*.war
+*.json
