@@ -1,18 +1,50 @@
 import { SemperConnection } from '../../core';
 
-// This is just a test for now
+export interface RatingOption {
+  rating: number;
+  emoji: {
+    id: string | null;
+    name: string | null;
+    full: string | null;
+  }
+}
+
+export interface teamDataData {
+  teamId: string;
+  gameId: string,
+  name: string;
+  discordDisplayName: string;
+  langCode: string;
+  discordRoleId: string | null;
+  unicodeEmoji: string | null;
+  discordEmojiId: string | null;
+  discordEmojiName: string | null;
+  channelID: string | null;
+  teamRating: string;
+  ratingOptions: RatingOption[];
+  ratingTimestamp: string | null;
+  color: string
+  teamLogo: string | null;
+  headerImage: string | null;
+  ratingEmoji: string | null;
+}
+
 export interface TeamData {
-  name: string | null;
   success: boolean;
+  statusId: number;
+  teamData: teamDataData;
+  teamName: string;
+  langCode: string;
 }
 
 /**
  * Get the data of a team
  * 
+ * @author Marwin
  * @param teamID The ID of the team you want to get the data from 
- * @returns {Promise<TeamData>} The data of the team
+ * @returns {Promise<TeamData | null>} The data of the team or null if the request failed
  */
-export async function getTeamData(this: SemperConnection, teamID: number): Promise<TeamData> {
+export async function getTeamData(this: SemperConnection, teamID: number): Promise<TeamData | null> {
 
   const { token, discordGuildId } = this.config;
   const url = `https://api.smpr-com.de/v1/team/get/data?discordGuildId=${discordGuildId}&teamId=${teamID}&accessToken=${token}`;
@@ -21,24 +53,21 @@ export async function getTeamData(this: SemperConnection, teamID: number): Promi
     const response = await fetch(url, {
       method: 'GET',
     });
-    const data = await response.json();
+
+    // format the response to use the interface
+    const data: TeamData = await response.json();
 
     if (response.status !== 200) {
-      return {
-        name: null,
-        success: false,
-      };
+
+      return null;
+
     } else {
-      return {
-        name: data.teamData.name,
-        success: true,
-      };
+
+      return data;
+
     }
   } catch (error) {
     console.error(error);
-    return {
-      name: null,
-      success: false,
-    };
+    return null;
   }
 }
