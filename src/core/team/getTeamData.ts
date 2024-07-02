@@ -9,6 +9,23 @@ export interface RatingOption {
   }
 }
 
+export interface PlayerSearchOption {
+  roleId: number;
+  roleName: string;
+  roleEmoji: string;
+  roleEmojiId: string;
+  roleEmojiName: string;
+  debugData: {
+    discordGuildId: string;
+    teamId: number;
+  };
+  searchCount: number;
+}
+
+export interface PlayerSearchObject {
+  [key: string]: PlayerSearchOption;
+}
+
 export interface teamDataData {
   teamId: string;
   gameId: string,
@@ -21,9 +38,10 @@ export interface teamDataData {
   discordEmojiName: string | null;
   channelID: string | null;
   teamRating: string;
-  ratingOptions: RatingOption[];
+  ratingOptions: RatingOption[] | [];
   ratingTimestamp: string | null;
-  color: string
+  color: string;
+  playerSearch: PlayerSearchObject;
   teamLogo: string | null;
   headerImage: string | null;
   ratingEmoji: string | null;
