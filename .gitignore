@@ -27,3 +27,6 @@ Thumbs.db
 *.jar
 *.war
 *.json
+
+# Ignore the Test Folder
+tests
