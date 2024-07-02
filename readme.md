@@ -22,7 +22,7 @@
 - Flexibility: Use the module in any Node.js project
 - Modern: Built with TypeScript
 
->[!DANGER]
+>[!IMPORTANT]
 > Everything from here on is subject to change as the module is still in development.
 
 ## Installation
