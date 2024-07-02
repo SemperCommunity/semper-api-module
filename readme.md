@@ -1,6 +1,12 @@
-![Semper API Module](assets/Profile_Banner.png)
+<div align="center" style="display:grid;place-items:center;">
+
+<p>
+  <a href="https://discord.gg/smpr" target="_blank"><img width="90" src="https://raw.githubusercontent.com/SemperCommunity/semper-api-module/main/assets/SemperCommunity.png?sanitize=true">
+  </a>
+</p>
 
 # Semper API Module
+</div>
 
 ## Introduction
 The Semper API Module is an NPM package that provides a simple interface to interact with the Semper API. <br>
