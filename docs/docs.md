@@ -36,6 +36,7 @@ const config = {
 // Create a new connection to the Semper API
 const connection = new SemperConnection(config);
 ```
+More information on the `SemperConnection` object can be found in the [Data Types](./dataTypes.md#semperconnectionconfig) section.
 
 ## Methods
 ### `getTeamData(teamId: int): Promise<TeamData>`
