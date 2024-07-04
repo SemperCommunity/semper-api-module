@@ -36,3 +36,13 @@ const config = {
 // Create a new connection to the Semper API
 const connection = new SemperConnection(config);
 ```
+
+## Methods
+### `getTeamData(teamId: int): Promise<TeamData>`
+```javascript
+// Get the data of the team with the ID 12
+// Since this method returns a promise,
+// you need to use .then() or async/await to resolve it.
+const data = await connection.getTeamData(12);
+```
+For more information on the `TeamData` object, see the [Data Types](./dataTypes.md#getteamdatateamid-number-promiseteamdata) section.
