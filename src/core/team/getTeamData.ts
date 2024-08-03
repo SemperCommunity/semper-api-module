@@ -1,4 +1,4 @@
-import { SemperConnection } from '../../core';
+import { SemperConnection } from "../../core";
 
 export interface RatingOption {
   rating: number;
@@ -6,7 +6,7 @@ export interface RatingOption {
     id: string | null;
     name: string | null;
     full: string | null;
-  }
+  };
 }
 
 export interface PlayerSearchOption {
@@ -28,7 +28,7 @@ export interface PlayerSearchObject {
 
 export interface teamDataData {
   teamId: string;
-  gameId: string,
+  gameId: string;
   name: string;
   discordDisplayName: string;
   langCode: string;
@@ -57,32 +57,30 @@ export interface TeamData {
 
 /**
  * Get the data of a team
- * 
+ *
  * @author Marwin
- * @param teamID The ID of the team you want to get the data from 
+ * @param teamID The ID of the team you want to get the data from
  * @returns {Promise<TeamData | null>} The data of the team or null if the request failed
  */
-export async function getTeamData(this: SemperConnection, teamID: number): Promise<TeamData | null> {
-
+export async function getTeamData(
+  this: SemperConnection,
+  teamID: number,
+): Promise<TeamData | null> {
   const { token, discordGuildId } = this.config;
   const url = `https://api.smpr-com.de/v1/team/get/data?discordGuildId=${discordGuildId}&teamId=${teamID}&accessToken=${token}`;
 
   try {
     const response = await fetch(url, {
-      method: 'GET',
+      method: "GET",
     });
 
     // format the response to use the interface
     const data: TeamData = await response.json();
 
     if (response.status !== 200) {
-
       return null;
-
     } else {
-
       return data;
-
     }
   } catch (error) {
     console.error(error);

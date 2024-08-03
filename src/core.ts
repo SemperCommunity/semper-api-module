@@ -1,4 +1,4 @@
-import { getTeamData } from './core/team/getTeamData';
+import { getTeamData } from "./core/team/getTeamData";
 
 export interface SemperConnectionConfig {
   discordGuildId: string;
@@ -12,7 +12,6 @@ export interface SemperConnection {
 }
 
 export class SemperConnection {
-
   constructor(public config: SemperConnectionConfig) {
     this.config = config;
   }
@@ -21,7 +20,6 @@ export class SemperConnection {
     const prototype = SemperConnection.prototype;
     prototype.getTeamData = getTeamData;
   }
-
 }
 
 SemperConnection.initializeCoreCalls();
